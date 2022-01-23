@@ -1,0 +1,286 @@
+:root{
+    --primario: #9C27B0;
+    --pimarioOscuro: #89119D;
+    --secundario: #ffce00;
+    --secundarioOscuro: rgb(233,187,2);
+    --blanco: #fff;
+    --negro: #000;
+    
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /* Hack para box model */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}  
+/* Globales */
+body{
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;/* Interlineado */
+}
+p{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+h1,h2,h3{
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+
+}
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 3.2rem;
+}
+h3{
+    font-size: 2.4rem;
+}
+
+/* Header */
+.header{
+    display: flex;
+    justify-content: center;
+}
+.header__logo{
+    margin: 3rem 0;
+}
+
+/* Footer */
+.footer{
+    background-color: var(--pimarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__text{
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+/* Navegacion */
+.navegacion{
+    background-color: var(--pimarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    /*gap: 2rem;/* SEPARA NUESTROS ENLACES EN LA BARRA DE NAVEGACION */
+}
+.navegacion__enlace{
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+    margin-right: 2rem;/* Separa los enlaces (forma antigua antes del "gap") */
+}
+.navegacion__enlace:last-of-type{/* Selecciona el ultimo del tipo de los enlcaes el "last-of-type" */
+    margin-right: 0;/* Sustitito con el margin-right: 2rem; de arriba por el "gap" */
+}
+.navegacion__enlace--activo,
+.navegacion__enlace:hover{
+    color: var(--secundario);
+}
+
+/* Grid */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);/* Se usa esto para dividir en columnas */
+    gap: 2rem;
+}
+@media (min-width: 768px) { 
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+ }
+
+/* Productos */
+.producto{
+    background-color: var(--pimarioOscuro);
+    padding: 1rem;
+}
+.producto__imagen{
+    width: 100%;
+}
+.producto__nombre{
+    font-size: 3.6rem;
+}
+.producto__precio{
+    font-size: 2.5rem;
+    color: var(--secundario);
+}
+.producto__nombre,
+.producto__precio{
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Graficos */
+.grafico{
+    min-height: 30rem;
+    background-repeat: no-repeat;/* Para que la imagenes puestas no se repitan en su espacio ya establecido */
+    background-size: cover;/* Para que la imagen aproche todo el espacio ya establecido */
+}
+.grafico--camisas{
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    background-image: url(../img/grafico1.jpg);
+}
+.grafico--node{
+    background-image: url(../img/grafico2.jpg);
+    grid-column: 1 / 3;/* Todo esto para la version de movil y verificar coordenadas en firefox */
+    grid-row: 8 / 9;
+}
+@media (min-width: 768px) { 
+    .grafico--node{
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+ }
+
+/* Nosotros */
+.nosotros{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+@media (min-width: 768px) { 
+    .nosotros{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+ }
+.nosotros__imagen{
+    grid-row: 1 / 2;
+}
+@media (min-width: 768px) { 
+    .nosotros__imagen{
+        grid-column: 2 / 3;
+    }
+ }
+
+/*Bloques*/
+.bloques{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;/* Separacion entre columnas */
+}
+@media (min-width: 768px) { /* Media querie es para solo mayor de 768px */
+    .bloques{
+        grid-template-columns: repeat(4, 1fr);
+    }
+ }
+.bloque{
+    text-align: center;
+}
+.bloque__titulo{
+    margin: 0;
+}
+
+/* Pagina del producto */
+@media (min-width: 768px) { 
+    .camisa{
+        display: grid;
+        grid-template-columns: 35% 65% /*repeat(2, 1fr)*/;
+        column-gap: 2rem;
+    }
+}
+.cont-i{
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto;
+}
+.camisa__imagen{
+    max-width: 100%;
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+.formulario__campo{
+    border-color: var(--pimarioOscuro);
+    border-width: 1rem;
+    border-style: solid;
+    /*border: 1rem solid var(--pimarioOscuro); --> Sustituto de las tres ultimas lineas de arriba para no escribir tanto codigo */
+    background-color: transparent;/* Pone los input transparentes y toman el color de la pagina */
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: .5rem;
+}
+
+/* Agregado por mi */
+.formulario__campo-cant{
+    border-color: var(--pimarioOscuro);
+    border-width: 1rem;
+    border-style: solid;
+    /*border: 1rem solid var(--pimarioOscuro); --> Sustituto de las tres ultimas lineas de arriba para no escribir tanto codigo */
+    background-color: transparent;/* Pone los input transparentes y toman el color de la pagina */
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: .5rem;
+}
+@media(max-width: 768px){
+    .formulario{
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+    }   
+    .formulario__campo-cant{
+        grid-row: 2/3;
+        grid-column: 1/3;
+    }
+    .formulario__campo{
+        grid-column: 1/3;
+    }
+}
+/* Fin del agregado por mi */
+
+.cantidad{
+    grid-column: 2/3;
+    margin-right: 1rem;
+}
+.formulario__submit{
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease;/* Sirve para poner una transicion en algun boton */
+    grid-column: 1 / 3;
+    border-radius: .5rem;
+    
+}
+@media (max-width: 768px) { 
+    .formulario__submit{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        grid-row: 3/4;
+    }
+ }
+.formulario__submit:hover{
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
+}
